@@ -1,0 +1,188 @@
+/*
+* css样式初始化
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html { height: 101%; }
+body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, sans-serif; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong { font-weight: bold; }
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+p { font-size: 1.2em; line-height: 1.0em; color: #333; }
+/*锚链节伪类*/
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: red; }
+a:active { color: yellow; }
+/*清除浮动样式*/
+.clearfix:after {
+    content: ".";
+    display: block;
+    height:0;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+
+/*清除浮动 方法二*/
+.clearfix:after,
+.clearfix:before {/*before 是为了防止浏览器顶部空白的崩溃*/
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+/*透明度兼容*/
+.filter{
+    filter:alpha(opacity=50); /*1-100*/
+    -moz-opacity:0.5; /*0-1.0*/
+    -khtml-opacity:0.5; /*0-1.0*/
+    opacity:0.5; /*0-1.0*/
+}
+/*垂直居中 IE9以上*/
+.verticalcenter{
+    position: relative;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/*
+ *给链接前添加图片
+ */
+a[href^="http://"]{
+    padding-right: 20px;
+    background: url(external.gif) no-repeat center right;
+}
+/* emails */
+a[href^="mailto:"]{
+    padding-right: 20px;
+    background: url(email.png) no-repeat center right;
+}
+
+/* pdfs */
+a[href$=".pdf"]{
+    padding-right: 20px;
+    background: url(pdf.png) no-repeat center right;
+}
+/*按钮背景颜色渐变*/
+button{
+    background-image: linear-gradient(#5187c4,#1c2f45);
+    background-size: auto 200%;
+    background-position: 0 100%;
+    transition: background-position 0.5s;
+}
+button:hover {
+    background-position: 0 0;
+}
+/*只在盒子一边或两边显示阴影*/
+.box-shadow{
+    background-color: #fff8020;
+    width: 160px;
+    height: 90px;
+    margin-top: -45px;
+    margin-left: -80px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+}
+.box-shadow:after{
+    content: '';
+    width: 150px;
+    height:1px;
+    margin-top: 88px;
+    margin-left: -75px;
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    box-shadow: 0px 0px 8px 2px #000000;
+}
+
+/*包裹长文本*/
+pre {
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+/*模糊文本*/
+.blurry-text {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+/*引用模板*/
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: .5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: .1em;
+    margin-right: .25em;
+    vertical-align: -.4em;
+}
+blockquote p {
+    display: inline;
+}
+/*css3渐变模板*/
+.background-image {
+    background: #629721;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));
+    background-image: -webkit-linear-gradient(top, #83b842, #629721);
+    background-image: -moz-linear-gradient(top, #83b842, #629721);
+    background-image: -ms-linear-gradient(top, #83b842, #629721);
+    background-image: -o-linear-gradient(top, #83b842, #629721);
+    background-image: linear-gradient(top, #83b842, #629721);
+}
+/*font-face模板*/
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('webfont.eot'); /* IE9 Compat Modes */
+    src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('webfont.woff') format('woff'), /* Modern Browsers */
+    url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+/*斑马线*/
+tbody tr:nth-child(odd) {
+    background-color: #ccc;
+}
+/*固定页脚*/
+#footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: #444;
+}
+/* IE 6 */
+* html #footer {
+    position: absolute;
+    top: expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+/*添加手型*/
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+    cursor: pointer;
+}
